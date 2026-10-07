@@ -17,8 +17,26 @@ export const metadata: Metadata = {
     'self-service laundry',
     'Cullen laundromat',
     'Pearland laundromat',
+    'Houston laundromat',
+    'Fresh Wash Washateria',
   ],
   generator: 'v0.app',
+  applicationName: 'Fresh Wash Washateria',
+  formatDetection: { telephone: true, address: true },
+  appleWebApp: {
+    capable: true,
+    title: 'Fresh Wash',
+    statusBarStyle: 'default',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    siteName: 'Fresh Wash Washateria',
+    title: 'Fresh Wash Washateria | Laundromat & Wash Dry Fold Serving Cullen & Pearland',
+    description:
+      'Self-service laundry and Wash, Dry & Fold service at 14450 Old Chocolate Bayou Rd Ste A, Houston, TX 77048. Serving the Cullen & Pearland areas.',
+    images: [{ url: '/images/exterior.jpg', alt: 'Fresh Wash Washateria storefront' }],
+  },
   icons: {
     icon: [
       { url: '/icon-light-32x32.png', media: '(prefers-color-scheme: light)' },
@@ -30,6 +48,9 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
   colorScheme: 'light',
   themeColor: '#1f7ac4',
 }

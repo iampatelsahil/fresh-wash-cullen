@@ -4,19 +4,19 @@ import { Reveal } from '@/components/reveal'
 
 export function HoursArea() {
   return (
-    <section className="bg-primary py-20 text-primary-foreground md:py-24">
+    <section className="bg-primary py-14 text-primary-foreground md:py-24">
       <div className="mx-auto grid max-w-6xl gap-8 px-4 lg:grid-cols-2">
         <Reveal>
-          <div id="hours" className="scroll-mt-28 h-full rounded-3xl bg-background p-6 text-foreground shadow-xl md:p-8">
+          <div id="hours" className="scroll-mt-28 h-full rounded-3xl bg-background p-5 text-foreground shadow-xl sm:p-6 md:p-8">
             <div className="flex items-center gap-3">
               <Clock className="size-7 text-primary" aria-hidden="true" />
               <h2 className="text-3xl font-extrabold">Store Hours</h2>
             </div>
             <dl className="mt-6 divide-y">
               {hours.map((h) => (
-                <div key={h.day} className="flex items-center justify-between gap-4 py-3.5">
-                  <dt className="text-lg font-bold">{h.day}</dt>
-                  <dd className="text-lg font-semibold text-primary">{h.time}</dd>
+                <div key={h.day} className="flex items-center justify-between gap-3 py-3">
+                  <dt className="text-base font-bold sm:text-lg">{h.day}</dt>
+                  <dd className="whitespace-nowrap text-base font-semibold tabular-nums text-primary sm:text-lg">{h.time}</dd>
                 </div>
               ))}
             </dl>

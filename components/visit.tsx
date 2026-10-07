@@ -4,7 +4,7 @@ import { Reveal } from '@/components/reveal'
 
 export function Visit() {
   return (
-    <section id="contact" className="scroll-mt-28 py-20 md:py-24">
+    <section id="contact" className="scroll-mt-28 py-14 md:py-24">
       <div className="mx-auto grid max-w-6xl items-stretch gap-8 px-4 md:grid-cols-5">
         <Reveal className="md:col-span-2">
           <div className="flex h-full flex-col gap-6">

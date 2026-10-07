@@ -60,9 +60,29 @@
     @apply border-border outline-ring/50;
   }
   html {
-    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    overflow-x: clip;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
   }
   body {
     @apply bg-background text-foreground font-sans;
+    overflow-x: clip;
+    -webkit-tap-highlight-color: transparent;
+  }
+  a,
+  button {
+    touch-action: manipulation;
+  }
+  a:focus-visible,
+  button:focus-visible {
+    @apply outline-2 outline-offset-2 outline-ring;
+  }
+  img {
+    max-width: 100%;
   }
 }

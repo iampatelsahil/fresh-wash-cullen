@@ -8,6 +8,7 @@ import { Gallery } from '@/components/gallery'
 import { HoursArea } from '@/components/hours-area'
 import { Visit } from '@/components/visit'
 import { SiteFooter } from '@/components/site-footer'
+import { MobileActionBar } from '@/components/mobile-action-bar'
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
         <Visit />
       </main>
       <SiteFooter />
+      <MobileActionBar />
     </>
   )
 }

@@ -35,14 +35,14 @@ const services = [
 
 export function Services() {
   return (
-    <section id="services" className="scroll-mt-28 py-20 md:py-24">
+    <section id="services" className="scroll-mt-28 py-14 md:py-24">
       <div className="mx-auto max-w-6xl px-4">
         <Reveal>
           <SectionHeading eyebrow="What we do" title="Two easy ways to get laundry done">
             Do it yourself on our machines, or drop it off and pick it up clean and folded.
           </SectionHeading>
         </Reveal>
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+        <div className="mt-8 md:mt-12 grid gap-6 md:grid-cols-3">
           {services.map((s) => (
             <Reveal key={s.title}>
               <article className="group flex h-full flex-col overflow-hidden rounded-3xl border bg-card shadow-sm transition-shadow hover:shadow-lg">

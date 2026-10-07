@@ -5,7 +5,7 @@ import { Reveal, SectionHeading } from '@/components/reveal'
 
 export function WashFoldPricing() {
   return (
-    <section id="wash-fold" className="scroll-mt-28 py-20 md:py-24">
+    <section id="wash-fold" className="scroll-mt-28 py-14 md:py-24">
       <div className="mx-auto max-w-6xl px-4">
         <Reveal>
           <SectionHeading eyebrow="Wash, Dry & Fold" title="Drop it off. We wash, dry & fold it.">
@@ -13,14 +13,14 @@ export function WashFoldPricing() {
           </SectionHeading>
         </Reveal>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
+        <div className="mt-8 md:mt-12 grid gap-6 md:grid-cols-2">
           {washFoldMain.map((item, i) => (
             <Reveal key={item.name}>
               <div
                 className={
                   i === 0
-                    ? 'h-full rounded-3xl bg-primary p-8 text-primary-foreground shadow-lg'
-                    : 'h-full rounded-3xl border-2 border-primary bg-card p-8 shadow-sm'
+                    ? 'h-full rounded-3xl bg-primary p-6 text-primary-foreground shadow-lg sm:p-8'
+                    : 'h-full rounded-3xl border-2 border-primary bg-card p-6 shadow-sm sm:p-8'
                 }
               >
                 <p className="text-lg font-extrabold">{item.name}</p>
@@ -36,7 +36,7 @@ export function WashFoldPricing() {
 
         <div className="mt-6 grid gap-6 lg:grid-cols-5">
           <Reveal className="lg:col-span-3">
-            <div className="h-full rounded-3xl border bg-card p-6 shadow-sm md:p-8">
+            <div className="h-full rounded-3xl border bg-card p-5 shadow-sm sm:p-6 md:p-8">
               <h3 className="text-xl font-extrabold">Bedding & rugs</h3>
               <ul className="mt-4 divide-y">
                 {washFoldItems.map((item) => (
@@ -45,7 +45,7 @@ export function WashFoldPricing() {
                       <p className="font-bold">{item.name}</p>
                       {item.note && <p className="text-sm text-muted-foreground">{item.note}</p>}
                     </div>
-                    <div className="text-right">
+                    <div className="shrink-0 text-right">
                       <p className="text-2xl font-extrabold text-primary">{item.price}</p>
                       {item.unit && <p className="text-xs font-semibold text-muted-foreground">{item.unit}</p>}
                     </div>

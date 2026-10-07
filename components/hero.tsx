@@ -1,62 +1,75 @@
 import Image from 'next/image'
-import { MapPin, Navigation, Phone, Tag } from 'lucide-react'
+import { MapPin, Navigation, Phone, Shirt, Tag } from 'lucide-react'
 import { business, photos } from '@/lib/business'
+
+const ctaBase =
+  'inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-5 text-base font-bold transition-opacity hover:opacity-90'
 
 export function Hero() {
   return (
     <section id="home" className="scroll-mt-28 bg-secondary/60">
-      <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-12 md:py-20 lg:grid-cols-2">
-        <div>
+      <div className="mx-auto grid max-w-6xl items-center gap-8 px-4 py-8 sm:py-12 md:py-20 lg:grid-cols-2 lg:gap-10">
+        <div className="min-w-0">
           <p className="inline-flex items-center gap-2 rounded-full bg-background px-4 py-1.5 text-sm font-bold text-primary shadow-sm">
-            <MapPin className="size-4" aria-hidden="true" />
+            <MapPin className="size-4 shrink-0" aria-hidden="true" />
             Serving the Cullen & Pearland Areas
           </p>
-          <h1 className="mt-5 text-balance text-4xl font-extrabold leading-tight tracking-tight md:text-6xl">
+          <h1 className="mt-4 text-balance text-[2.25rem] font-extrabold leading-[1.1] tracking-tight sm:text-5xl md:mt-5 md:text-6xl">
             Clean Clothes. <span className="text-primary">Easy Laundry.</span>
           </h1>
-          <p className="mt-5 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground">
+          <p className="mt-4 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg md:mt-5">
             Your convenient local washateria serving the Cullen & Pearland areas. Stop in for self-service laundry or
             let us handle it with our Wash, Dry & Fold service.
           </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+
+          <div className="mt-6 grid grid-cols-1 gap-3 min-[400px]:grid-cols-2 md:mt-8">
+            <a href="#self-service" className={`${ctaBase} bg-primary text-primary-foreground shadow-md`}>
+              <Tag className="size-5" aria-hidden="true" />
+              View Prices
+            </a>
+            <a
+              href="#wash-fold"
+              className={`${ctaBase} border-2 border-primary bg-background text-primary hover:bg-secondary hover:opacity-100`}
+            >
+              <Shirt className="size-5" aria-hidden="true" />
+              Wash, Dry & Fold
+            </a>
             <a
               href={business.mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 font-bold text-primary-foreground shadow-md transition-opacity hover:opacity-90"
+              className={`${ctaBase} border-2 border-primary bg-background text-primary hover:bg-secondary hover:opacity-100`}
             >
               <Navigation className="size-5" aria-hidden="true" />
               Get Directions
             </a>
             <a
-              href="#self-service"
-              className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-primary bg-background px-6 py-3.5 font-bold text-primary transition-colors hover:bg-secondary"
+              href={business.phoneHref}
+              className={`${ctaBase} border-2 border-primary bg-background text-primary hover:bg-secondary hover:opacity-100`}
             >
-              <Tag className="size-5" aria-hidden="true" />
-              View Prices
+              <Phone className="size-5" aria-hidden="true" />
+              Call Us
             </a>
           </div>
-          <div className="mt-6 flex flex-col gap-1 text-sm font-semibold text-muted-foreground sm:flex-row sm:flex-wrap sm:gap-x-4">
-            <span>
-              {business.street}, {business.cityStateZip}
-            </span>
-            <a href={business.phoneHref} className="inline-flex items-center gap-1.5 text-primary hover:underline">
-              <Phone className="size-4" aria-hidden="true" />
+
+          <p className="mt-5 text-sm font-semibold text-muted-foreground">
+            {business.street}, {business.cityStateZip}
+            <span aria-hidden="true">{' · '}</span>
+            <a href={business.phoneHref} className="whitespace-nowrap text-primary underline-offset-4 hover:underline">
               {business.phone}
             </a>
-          </div>
+          </p>
         </div>
 
-        <div className="relative">
-          <div className="overflow-hidden rounded-3xl shadow-xl ring-4 ring-background">
+        <div className="relative min-w-0">
+          <div className="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-xl ring-4 ring-background sm:aspect-[16/10] lg:aspect-[1250/718]">
             <Image
               src={photos.exterior.src || '/placeholder.svg'}
               alt={photos.exterior.alt}
-              width={1250}
-              height={718}
+              fill
               priority
-              sizes="(min-width: 1024px) 50vw, 100vw"
-              className="h-auto w-full object-cover"
+              sizes="(min-width: 1152px) 560px, (min-width: 1024px) 50vw, 100vw"
+              className="object-cover object-[50%_35%]"
             />
           </div>
           <div className="absolute -bottom-6 left-4 hidden w-40 overflow-hidden rounded-2xl shadow-lg ring-4 ring-background sm:block md:w-52">

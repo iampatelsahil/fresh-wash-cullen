@@ -12,12 +12,12 @@ const reasons = [
 
 export function WhyUs() {
   return (
-    <section className="bg-secondary/60 py-20 md:py-24">
+    <section className="bg-secondary/60 py-14 md:py-24">
       <div className="mx-auto max-w-6xl px-4">
         <Reveal>
           <SectionHeading eyebrow="Why Fresh Wash" title="A clean, comfortable place to do laundry" />
         </Reveal>
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 md:mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {reasons.map(({ icon: Icon, title, body }) => (
             <Reveal key={title}>
               <div className="flex h-full gap-4 rounded-3xl border bg-card p-6 shadow-sm">

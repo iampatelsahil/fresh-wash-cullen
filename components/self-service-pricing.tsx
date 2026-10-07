@@ -4,7 +4,7 @@ import { Reveal, SectionHeading } from '@/components/reveal'
 
 export function SelfServicePricing() {
   return (
-    <section id="self-service" className="scroll-mt-28 bg-secondary/60 py-20 md:py-24">
+    <section id="self-service" className="scroll-mt-28 bg-secondary/60 py-14 md:py-24">
       <div className="mx-auto max-w-6xl px-4">
         <Reveal>
           <SectionHeading eyebrow="Self-Service" title="Washer & dryer prices">
@@ -12,9 +12,9 @@ export function SelfServicePricing() {
           </SectionHeading>
         </Reveal>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-2">
+        <div className="mt-8 md:mt-12 grid gap-6 lg:grid-cols-2">
           <Reveal>
-            <div className="h-full rounded-3xl border bg-card p-6 shadow-sm md:p-8">
+            <div className="h-full rounded-3xl border bg-card p-5 shadow-sm sm:p-6 md:p-8">
               <div className="flex items-center gap-3">
                 <span className="flex size-12 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
                   <WashingMachine className="size-6" aria-hidden="true" />
@@ -33,7 +33,7 @@ export function SelfServicePricing() {
                         {w.count} machines · Extra options {w.extra} each
                       </p>
                     </div>
-                    <p className="text-3xl font-extrabold text-primary">{w.price}</p>
+                    <p className="shrink-0 text-2xl font-extrabold tabular-nums text-primary sm:text-3xl">{w.price}</p>
                   </li>
                 ))}
               </ul>
@@ -41,7 +41,7 @@ export function SelfServicePricing() {
           </Reveal>
 
           <Reveal>
-            <div className="h-full rounded-3xl border bg-card p-6 shadow-sm md:p-8">
+            <div className="h-full rounded-3xl border bg-card p-5 shadow-sm sm:p-6 md:p-8">
               <div className="flex items-center gap-3">
                 <span className="flex size-12 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
                   <Wind className="size-6" aria-hidden="true" />
@@ -60,7 +60,7 @@ export function SelfServicePricing() {
                         {d.count} machines · Top-off {d.topoff} for {d.minutes} min
                       </p>
                     </div>
-                    <p className="text-3xl font-extrabold text-primary">{d.price}</p>
+                    <p className="shrink-0 text-2xl font-extrabold tabular-nums text-primary sm:text-3xl">{d.price}</p>
                   </li>
                 ))}
               </ul>
