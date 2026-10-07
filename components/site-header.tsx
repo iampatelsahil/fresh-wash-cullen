@@ -23,7 +23,7 @@ export function SiteHeader() {
             </span>
             <span className="leading-tight">
               <span className="block text-base font-extrabold">{business.name}</span>
-              <span className="block text-xs font-semibold text-muted-foreground">Cullen · Wash & Fold</span>
+              <span className="block text-xs font-semibold text-muted-foreground">Cullen · Pearland · Wash & Fold</span>
             </span>
           </a>
 
