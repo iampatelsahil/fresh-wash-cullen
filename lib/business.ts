@@ -5,6 +5,8 @@ export const business = {
   street: '14450 Old Chocolate Bayou Rd Ste A',
   cityStateZip: 'Houston, TX 77048',
   areas: ['Cullen', 'Pearland'],
+  phone: '(832) 649-3079',
+  phoneHref: 'tel:+18326493079',
   mapsUrl: 'https://maps.app.goo.gl/U51vEKGPgMVFQykV8',
   mapsEmbedUrl:
     'https://www.google.com/maps?q=14450+Old+Chocolate+Bayou+Rd+Ste+A,+Houston,+TX+77048&output=embed',

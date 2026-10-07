@@ -1,4 +1,4 @@
-import { Clock, MapPin, Navigation, Shirt } from 'lucide-react'
+import { Clock, MapPin, Navigation, Phone } from 'lucide-react'
 import { business } from '@/lib/business'
 import { Reveal } from '@/components/reveal'
 
@@ -21,6 +21,15 @@ export function Visit() {
               </address>
             </div>
             <div className="flex items-start gap-3">
+              <Phone className="mt-1 size-5 shrink-0 text-primary" aria-hidden="true" />
+              <p className="leading-relaxed">
+                <span className="block text-sm font-semibold text-muted-foreground">Call the store</span>
+                <a href={business.phoneHref} className="text-lg font-bold text-primary hover:underline">
+                  {business.phone}
+                </a>
+              </p>
+            </div>
+            <div className="flex items-start gap-3">
               <Clock className="mt-1 size-5 shrink-0 text-primary" aria-hidden="true" />
               <p className="leading-relaxed">
                 <span className="block font-bold">Mon – Fri: 7:00 AM – 10:00 PM</span>
@@ -41,11 +50,11 @@ export function Visit() {
                 Get Directions
               </a>
               <a
-                href="#wash-fold"
+                href={business.phoneHref}
                 className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-primary px-6 py-3.5 font-bold text-primary transition-colors hover:bg-secondary"
               >
-                <Shirt className="size-5" aria-hidden="true" />
-                Wash, Dry & Fold
+                <Phone className="size-5" aria-hidden="true" />
+                Call Now
               </a>
             </div>
           </div>

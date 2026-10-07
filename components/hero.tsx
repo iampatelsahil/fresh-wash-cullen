@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { MapPin, Navigation, Tag } from 'lucide-react'
+import { MapPin, Navigation, Phone, Tag } from 'lucide-react'
 import { business, photos } from '@/lib/business'
 
 export function Hero() {
@@ -36,9 +36,15 @@ export function Hero() {
               View Prices
             </a>
           </div>
-          <p className="mt-6 text-sm font-semibold text-muted-foreground">
-            {business.street}, {business.cityStateZip}
-          </p>
+          <div className="mt-6 flex flex-col gap-1 text-sm font-semibold text-muted-foreground sm:flex-row sm:flex-wrap sm:gap-x-4">
+            <span>
+              {business.street}, {business.cityStateZip}
+            </span>
+            <a href={business.phoneHref} className="inline-flex items-center gap-1.5 text-primary hover:underline">
+              <Phone className="size-4" aria-hidden="true" />
+              {business.phone}
+            </a>
+          </div>
         </div>
 
         <div className="relative">

@@ -18,6 +18,9 @@ export function SiteFooter() {
             <br />
             {business.cityStateZip}
           </address>
+          <a href={business.phoneHref} className="mt-2 block text-sm font-bold text-background hover:underline">
+            {business.phone}
+          </a>
           <a
             href={business.mapsUrl}
             target="_blank"

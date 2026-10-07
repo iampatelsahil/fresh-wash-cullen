@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Clock, Menu, Navigation, WashingMachine, X } from 'lucide-react'
+import { Clock, Menu, Navigation, Phone, WashingMachine, X } from 'lucide-react'
 import { business, navLinks } from '@/lib/business'
 
 export function SiteHeader() {
@@ -42,6 +42,14 @@ export function SiteHeader() {
 
           <div className="flex items-center gap-2">
             <a
+              href={business.phoneHref}
+              className="inline-flex items-center gap-2 rounded-full border-2 border-primary px-3 py-2 text-sm font-bold text-primary transition-colors hover:bg-secondary sm:px-4"
+            >
+              <Phone className="size-4" aria-hidden="true" />
+              <span className="sr-only sm:not-sr-only">{business.phone}</span>
+              <span className="sm:hidden" aria-hidden="true">Call</span>
+            </a>
+            <a
               href={business.mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
@@ -77,6 +85,15 @@ export function SiteHeader() {
                   </a>
                 </li>
               ))}
+              <li className="pt-2">
+                <a
+                  href={business.phoneHref}
+                  className="flex items-center justify-center gap-2 rounded-full border-2 border-primary px-4 py-3 font-bold text-primary"
+                >
+                  <Phone className="size-4" aria-hidden="true" />
+                  {`Call ${business.phone}`}
+                </a>
+              </li>
               <li className="pt-2">
                 <a
                   href={business.mapsUrl}
