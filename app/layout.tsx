@@ -6,9 +6,18 @@ import './globals.css'
 const nunito = Nunito({ subsets: ['latin'], variable: '--font-nunito' })
 
 export const metadata: Metadata = {
-  title: 'Fresh Wash Washateria - Cullen | Wash & Fold Services in Houston, TX',
+  title: 'Fresh Wash Washateria | Laundromat & Wash Dry Fold Serving Cullen & Pearland',
   description:
-    'Fresh Wash Washateria - Cullen offers self service washateria and wash, dry & fold service at 14450 Old Chocolate Bayou Rd Ste A, Houston, TX 77048.',
+    'Self-service laundry and Wash, Dry & Fold service at Fresh Wash Washateria, 14450 Old Chocolate Bayou Rd Ste A, Houston, TX 77048. Serving the Cullen & Pearland areas. Open 7 days from 7 AM.',
+  keywords: [
+    'washateria',
+    'laundromat',
+    'laundry',
+    'wash dry fold',
+    'self-service laundry',
+    'Cullen laundromat',
+    'Pearland laundromat',
+  ],
   generator: 'v0.app',
   icons: {
     icon: [
