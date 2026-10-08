@@ -1,15 +1,13 @@
-import { WashingMachine } from 'lucide-react'
 import { business, hours, navLinks } from '@/lib/business'
+import { BrandMark } from '@/components/brand-mark'
 
 export function SiteFooter() {
   return (
     <footer className="bg-foreground text-background">
-      <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:grid-cols-2 sm:gap-10 md:py-14 lg:grid-cols-4">
+      <div className="mx-auto grid max-w-6xl gap-8 px-safe py-10 sm:grid-cols-2 sm:gap-10 md:py-14 lg:grid-cols-4">
         <div>
           <div className="flex items-center gap-2">
-            <span className="flex size-10 items-center justify-center rounded-xl bg-primary text-primary-foreground">
-              <WashingMachine className="size-6" aria-hidden="true" />
-            </span>
+            <BrandMark id="footer" className="size-10 rounded-xl" />
             <p className="font-extrabold">{business.name}</p>
           </div>
           <p className="mt-3 text-sm leading-relaxed text-background/75">Serving the Cullen & Pearland Areas</p>
@@ -38,10 +36,10 @@ export function SiteFooter() {
 
         <nav aria-label="Footer">
           <p className="font-extrabold">Quick Links</p>
-          <ul className="mt-3 space-y-2 text-sm text-background/75">
+          <ul className="mt-3 space-y-1 text-sm text-background/75">
             {navLinks.map((l) => (
               <li key={l.href}>
-                <a href={l.href} className="inline-flex min-h-8 items-center hover:text-background">
+                <a href={l.href} className="inline-flex min-h-10 items-center hover:text-background">
                   {l.label}
                 </a>
               </li>
@@ -72,7 +70,7 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="border-t border-background/15 pb-[calc(5rem+env(safe-area-inset-bottom))] md:pb-0">
-        <p className="mx-auto max-w-6xl px-4 py-5 text-xs text-background/70">
+        <p className="mx-auto max-w-6xl px-safe py-5 text-xs text-background/70">
           {`© ${new Date().getFullYear()} ${business.fullName}`}
         </p>
       </div>

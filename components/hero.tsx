@@ -7,14 +7,14 @@ const ctaBase =
 
 export function Hero() {
   return (
-    <section id="home" className="scroll-mt-28 bg-secondary/60">
-      <div className="mx-auto grid max-w-6xl items-center gap-8 px-4 py-8 sm:py-12 md:py-20 lg:grid-cols-2 lg:gap-10">
+    <section id="home" className="bg-secondary/60">
+      <div className="mx-auto grid max-w-6xl items-center gap-8 px-safe py-8 sm:py-12 md:py-20 lg:grid-cols-2 lg:gap-10 short-landscape:grid-cols-2 short-landscape:items-start short-landscape:gap-6 short-landscape:py-6">
         <div className="min-w-0">
-          <p className="inline-flex items-center gap-2 rounded-full bg-background px-4 py-1.5 text-sm font-bold text-primary shadow-sm">
+          <p className="inline-flex items-center gap-2 rounded-full bg-background px-3.5 py-1.5 text-[0.8125rem] font-bold text-primary shadow-sm min-[360px]:px-4 min-[360px]:text-sm">
             <MapPin className="size-4 shrink-0" aria-hidden="true" />
             Serving the Cullen & Pearland Areas
           </p>
-          <h1 className="mt-4 text-balance text-[2.25rem] font-extrabold leading-[1.1] tracking-tight sm:text-5xl md:mt-5 md:text-6xl">
+          <h1 className="mt-4 text-balance text-[2.125rem] font-extrabold leading-[1.1] tracking-tight min-[375px]:text-[2.25rem] sm:text-5xl md:mt-5 md:text-6xl short-landscape:text-4xl">
             Clean Clothes. <span className="text-primary">Easy Laundry.</span>
           </h1>
           <p className="mt-4 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg md:mt-5">
@@ -22,7 +22,7 @@ export function Hero() {
             let us handle it with our Wash, Dry & Fold service.
           </p>
 
-          <div className="mt-6 grid grid-cols-1 gap-3 min-[400px]:grid-cols-2 md:mt-8">
+          <div className="mt-6 grid grid-cols-1 gap-3 min-[400px]:grid-cols-2 md:mt-8 short-landscape:mt-5">
             <a href="#self-service" className={`${ctaBase} bg-primary text-primary-foreground shadow-md`}>
               <Tag className="size-5" aria-hidden="true" />
               View Prices
@@ -55,7 +55,10 @@ export function Hero() {
           <p className="mt-5 text-sm font-semibold text-muted-foreground">
             {business.street}, {business.cityStateZip}
             <span aria-hidden="true">{' · '}</span>
-            <a href={business.phoneHref} className="whitespace-nowrap text-primary underline-offset-4 hover:underline">
+            <a
+              href={business.phoneHref}
+              className="whitespace-nowrap font-bold text-primary underline decoration-2 underline-offset-4"
+            >
               {business.phone}
             </a>
           </p>
@@ -67,12 +70,13 @@ export function Hero() {
               src={photos.exterior.src || '/placeholder.svg'}
               alt={photos.exterior.alt}
               fill
-              priority
-              sizes="(min-width: 1152px) 560px, (min-width: 1024px) 50vw, 100vw"
+              preload
+              quality={85}
+              sizes="(min-width: 1152px) 560px, (min-width: 1024px) 50vw, (orientation: landscape) and (max-height: 500px) 50vw, 100vw"
               className="object-cover object-[50%_35%]"
             />
           </div>
-          <div className="absolute -bottom-6 left-4 hidden w-40 overflow-hidden rounded-2xl shadow-lg ring-4 ring-background sm:block md:w-52">
+          <div className="absolute -bottom-6 left-4 hidden w-40 overflow-hidden rounded-2xl shadow-lg ring-4 ring-background sm:block md:w-52 short-landscape:hidden">
             <Image
               src={photos.staff.src || '/placeholder.svg'}
               alt={photos.staff.alt}

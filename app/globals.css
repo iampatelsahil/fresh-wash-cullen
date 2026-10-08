@@ -3,6 +3,14 @@
 @import 'shadcn/tailwind.css';
 
 @custom-variant dark (&:is(.dark *));
+/* Phones held sideways: wide but very short viewports. */
+@custom-variant short-landscape (@media (orientation: landscape) and (max-height: 500px));
+
+/* Side gutters that also clear the notch / Dynamic Island on landscape iPhones. */
+@utility px-safe {
+  padding-left: max(1rem, env(safe-area-inset-left));
+  padding-right: max(1rem, env(safe-area-inset-right));
+}
 
 @theme inline {
   --font-sans: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
@@ -40,7 +48,8 @@
   --card-foreground: oklch(0.24 0.04 245);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.24 0.04 245);
-  --primary: oklch(0.55 0.15 240);
+  /* Brand blue, tuned so small blue text passes WCAG AA on the light-blue sections. */
+  --primary: oklch(0.52 0.15 240);
   --primary-foreground: oklch(0.99 0 0);
   --secondary: oklch(0.96 0.025 230);
   --secondary-foreground: oklch(0.3 0.08 245);
@@ -51,7 +60,7 @@
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.91 0.02 230);
   --input: oklch(0.91 0.02 230);
-  --ring: oklch(0.55 0.15 240);
+  --ring: oklch(0.52 0.15 240);
   --radius: 1rem;
 }
 
@@ -63,6 +72,13 @@
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
     overflow-x: clip;
+    /* Anchor jumps land below the sticky header (incl. the iPhone status-bar inset). */
+    scroll-padding-top: calc(7rem + env(safe-area-inset-top));
+  }
+  @media (orientation: landscape) and (max-height: 500px) {
+    html {
+      scroll-padding-top: calc(5rem + env(safe-area-inset-top));
+    }
   }
   @media (prefers-reduced-motion: no-preference) {
     html {
@@ -79,10 +95,22 @@
     touch-action: manipulation;
   }
   a:focus-visible,
-  button:focus-visible {
+  button:focus-visible,
+  iframe:focus-visible {
     @apply outline-2 outline-offset-2 outline-ring;
   }
   img {
     max-width: 100%;
+  }
+}
+
+/* Mobile menu fills the space below the header without running under the browser's bottom toolbar. */
+.mobile-menu {
+  max-height: calc(100vh - 6.5rem - env(safe-area-inset-top));
+  max-height: calc(100dvh - 6.5rem - env(safe-area-inset-top));
+}
+@media (orientation: landscape) and (max-height: 500px) {
+  .mobile-menu {
+    max-height: calc(100dvh - 4.5rem - env(safe-area-inset-top));
   }
 }

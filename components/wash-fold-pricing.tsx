@@ -5,8 +5,8 @@ import { Reveal, SectionHeading } from '@/components/reveal'
 
 export function WashFoldPricing() {
   return (
-    <section id="wash-fold" className="scroll-mt-28 py-14 md:py-24">
-      <div className="mx-auto max-w-6xl px-4">
+    <section id="wash-fold" className="py-14 md:py-24">
+      <div className="mx-auto max-w-6xl px-safe">
         <Reveal>
           <SectionHeading eyebrow="Wash, Dry & Fold" title="Drop it off. We wash, dry & fold it.">
             Leave your laundry with our team and pick it up clean and neatly folded.
@@ -24,9 +24,9 @@ export function WashFoldPricing() {
                 }
               >
                 <p className="text-lg font-extrabold">{item.name}</p>
-                <p className={i === 0 ? 'text-primary-foreground/85' : 'text-muted-foreground'}>{item.note}</p>
+                <p className={i === 0 ? 'text-primary-foreground' : 'text-muted-foreground'}>{item.note}</p>
                 <p className="mt-6 text-5xl font-extrabold tracking-tight md:text-6xl">{item.price}</p>
-                <p className={i === 0 ? 'mt-1 font-semibold text-primary-foreground/85' : 'mt-1 font-semibold text-primary'}>
+                <p className={i === 0 ? 'mt-1 font-semibold text-primary-foreground' : 'mt-1 font-semibold text-primary'}>
                   {item.unit}
                 </p>
               </div>
@@ -73,7 +73,7 @@ export function WashFoldPricing() {
                   src={photos.care.src || '/placeholder.svg'}
                   alt={photos.care.alt}
                   fill
-                  sizes="(min-width: 1024px) 40vw, 100vw"
+                  sizes="(min-width: 1152px) 450px, (min-width: 1024px) 40vw, 100vw"
                   className="object-cover"
                 />
               </div>

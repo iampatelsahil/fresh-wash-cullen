@@ -6,7 +6,11 @@ export function MobileActionBar() {
     <nav
       aria-label="Quick actions"
       className="fixed inset-x-0 bottom-0 z-40 border-t bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/85 md:hidden"
-      style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
+      style={{
+        paddingBottom: 'env(safe-area-inset-bottom)',
+        paddingLeft: 'env(safe-area-inset-left)',
+        paddingRight: 'env(safe-area-inset-right)',
+      }}
     >
       <ul className="grid grid-cols-3 gap-2 px-3 py-2">
         <li>

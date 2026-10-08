@@ -12,6 +12,31 @@ export const business = {
     'https://www.google.com/maps?q=14450+Old+Chocolate+Bayou+Rd+Ste+A,+Houston,+TX+77048&output=embed',
 }
 
+// Absolute production URL used for canonical, Open Graph and JSON-LD URLs.
+// Set NEXT_PUBLIC_SITE_URL (e.g. https://www.example.com) to pin a custom domain;
+// on Vercel it falls back to the project's production domain automatically.
+const productionHost = process.env.VERCEL_PROJECT_PRODUCTION_URL
+export const siteUrl = (
+  process.env.NEXT_PUBLIC_SITE_URL || (productionHost ? `https://${productionHost}` : 'http://localhost:3000')
+).replace(/\/$/, '')
+
+export const seo = {
+  siteName: 'FreshWash Washateria',
+  title: 'FreshWash Washateria | Cullen & Pearland',
+  description:
+    'Self-service laundry and Wash, Dry & Fold at FreshWash Washateria, your local laundromat serving the Cullen and Pearland areas. Open 7 days a week from 7 AM.',
+  shareDescription:
+    'FreshWash Washateria serving the Cullen and Pearland areas. Self-service laundry and Wash, Dry & Fold services.',
+  ogImage: {
+    url: '/og-image.jpg',
+    width: 1200,
+    height: 630,
+    alt: 'FreshWash Washateria storefront with its lit freshwash Washateria sign, serving the Cullen & Pearland areas',
+  },
+  // Matches --primary (the blue top bar) so the browser UI blends with the header.
+  themeColor: '#0070b5',
+}
+
 export const navLinks = [
   { href: '#home', label: 'Home' },
   { href: '#self-service', label: 'Self-Service' },

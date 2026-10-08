@@ -35,8 +35,8 @@ const services = [
 
 export function Services() {
   return (
-    <section id="services" className="scroll-mt-28 py-14 md:py-24">
-      <div className="mx-auto max-w-6xl px-4">
+    <section id="services" className="py-14 md:py-24">
+      <div className="mx-auto max-w-6xl px-safe">
         <Reveal>
           <SectionHeading eyebrow="What we do" title="Two easy ways to get laundry done">
             Do it yourself on our machines, or drop it off and pick it up clean and folded.
@@ -51,7 +51,7 @@ export function Services() {
                     src={s.photo.src || '/placeholder.svg'}
                     alt={s.photo.alt}
                     fill
-                    sizes="(min-width: 768px) 33vw, 100vw"
+                    sizes="(min-width: 1152px) 360px, (min-width: 768px) 33vw, 100vw"
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
@@ -60,7 +60,7 @@ export function Services() {
                   <p className="mt-2 flex-1 leading-relaxed text-muted-foreground">{s.body}</p>
                   <a
                     href={s.href}
-                    className="mt-5 inline-flex items-center gap-1.5 font-bold text-primary hover:underline"
+                    className="mt-4 inline-flex min-h-11 items-center gap-1.5 self-start font-bold text-primary hover:underline"
                   >
                     {s.cta}
                     <ArrowRight className="size-4" aria-hidden="true" />
