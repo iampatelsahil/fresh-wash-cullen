@@ -13,12 +13,8 @@ export const business = {
 }
 
 // Absolute production URL used for canonical, Open Graph and JSON-LD URLs.
-// Set NEXT_PUBLIC_SITE_URL (e.g. https://www.example.com) to pin a custom domain;
-// on Vercel it falls back to the project's production domain automatically.
-const productionHost = process.env.VERCEL_PROJECT_PRODUCTION_URL
-export const siteUrl = (
-  process.env.NEXT_PUBLIC_SITE_URL || (productionHost ? `https://${productionHost}` : 'http://localhost:3000')
-).replace(/\/$/, '')
+// NEXT_PUBLIC_SITE_URL can override it (e.g. for a staging domain).
+export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://freshwashcullen.com').replace(/\/$/, '')
 
 export const seo = {
   siteName: 'FreshWash Washateria',
