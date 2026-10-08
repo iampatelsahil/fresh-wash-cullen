@@ -1,45 +1,65 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { Clock, Menu, Navigation, Phone, WashingMachine, X } from 'lucide-react'
+import { useEffect, useRef, useState } from 'react'
+import { Clock, Menu, Navigation, Phone, X } from 'lucide-react'
 import { business, navLinks } from '@/lib/business'
+import { BrandMark } from '@/components/brand-mark'
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false)
+  const headerRef = useRef<HTMLElement>(null)
+  const toggleRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
     if (!open) return
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setOpen(false)
+      if (e.key === 'Escape') {
+        setOpen(false)
+        toggleRef.current?.focus()
+      }
     }
     const onResize = () => {
       if (window.matchMedia('(min-width: 1024px)').matches) setOpen(false)
     }
+    // Tapping anywhere outside the header closes the menu.
+    const onPointerDown = (e: PointerEvent) => {
+      if (!headerRef.current?.contains(e.target as Node)) setOpen(false)
+    }
     window.addEventListener('keydown', onKey)
     window.addEventListener('resize', onResize)
+    document.addEventListener('pointerdown', onPointerDown)
     return () => {
       window.removeEventListener('keydown', onKey)
       window.removeEventListener('resize', onResize)
+      document.removeEventListener('pointerdown', onPointerDown)
     }
   }, [open])
 
   return (
-    <header className="sticky top-0 z-50" style={{ paddingTop: 'env(safe-area-inset-top)' }}>
-      <div className="bg-primary text-primary-foreground">
-        <p className="mx-auto flex max-w-6xl items-center justify-center gap-2 px-4 py-1.5 text-center text-xs font-semibold md:py-2 md:text-sm">
+    <header
+      ref={headerRef}
+      className="sticky top-0 z-50"
+      style={{
+        paddingTop: 'env(safe-area-inset-top)',
+        // Paint only the status-bar / notch strip blue so it continues the top bar.
+        backgroundImage: 'linear-gradient(var(--primary), var(--primary))',
+        backgroundSize: '100% env(safe-area-inset-top)',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
+      <div className="bg-primary text-primary-foreground short-landscape:hidden">
+        <p className="mx-auto flex max-w-6xl items-center justify-center gap-2 px-safe py-1.5 text-center text-xs font-semibold md:py-2 md:text-sm">
           <Clock className="size-4 shrink-0" aria-hidden="true" />
           <span className="sm:hidden">{'Open 7 days · 7 AM – 10 PM (Sat–Sun 11 PM)'}</span>
           <span className="hidden sm:inline">{'Open 7 days: 7:00 AM – 10:00 PM · Sat & Sun until 11:00 PM'}</span>
         </p>
       </div>
       <div className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/85">
-        <nav aria-label="Main" className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4">
+        <nav aria-label="Main" className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-safe">
           <a href="#home" className="flex min-w-0 items-center gap-2" onClick={() => setOpen(false)}>
-            <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground">
-              <WashingMachine className="size-6" aria-hidden="true" />
-            </span>
+            <BrandMark id="header" className="size-10 rounded-xl" />
             <span className="min-w-0 leading-tight">
-              <span className="block truncate text-base font-extrabold">{business.name}</span>
+              <span className="block truncate text-[0.9375rem] font-extrabold min-[360px]:text-base">{business.name}</span>
               <span className="block truncate text-xs font-semibold text-muted-foreground">
                 Cullen · Pearland · Wash & Fold
               </span>
@@ -51,7 +71,7 @@ export function SiteHeader() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="rounded-full px-3 py-2 text-sm font-semibold text-foreground/80 transition-colors hover:bg-secondary hover:text-primary"
+                  className="inline-flex min-h-11 items-center rounded-full px-3 text-sm font-semibold text-foreground/80 transition-colors hover:bg-secondary hover:text-primary"
                 >
                   {link.label}
                 </a>
@@ -78,6 +98,7 @@ export function SiteHeader() {
             </a>
             <button
               type="button"
+              ref={toggleRef}
               className="inline-flex size-12 items-center justify-center rounded-full border-2 text-foreground transition-colors hover:bg-secondary lg:hidden"
               aria-expanded={open}
               aria-controls="mobile-menu"
@@ -92,9 +113,9 @@ export function SiteHeader() {
         {open && (
           <div
             id="mobile-menu"
-            className="max-h-[calc(100dvh-6.5rem)] overflow-y-auto overscroll-contain border-t lg:hidden"
+            className="mobile-menu overflow-y-auto overscroll-contain border-t lg:hidden"
           >
-            <ul className="mx-auto flex max-w-6xl flex-col px-4 py-3">
+            <ul className="mx-auto flex max-w-6xl flex-col px-safe pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <a

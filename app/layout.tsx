@@ -1,49 +1,49 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Nunito } from 'next/font/google'
+import { seo, siteUrl } from '@/lib/business'
 import './globals.css'
 
-const nunito = Nunito({ subsets: ['latin'], variable: '--font-nunito' })
+const nunito = Nunito({ subsets: ['latin'], variable: '--font-nunito', display: 'swap' })
 
 export const metadata: Metadata = {
-  title: 'Fresh Wash Washateria | Laundromat & Wash Dry Fold Serving Cullen & Pearland',
-  description:
-    'Self-service laundry and Wash, Dry & Fold service at Fresh Wash Washateria, 14450 Old Chocolate Bayou Rd Ste A, Houston, TX 77048. Serving the Cullen & Pearland areas. Open 7 days from 7 AM.',
-  keywords: [
-    'washateria',
-    'laundromat',
-    'laundry',
-    'wash dry fold',
-    'self-service laundry',
-    'Cullen laundromat',
-    'Pearland laundromat',
-    'Houston laundromat',
-    'Fresh Wash Washateria',
-  ],
-  generator: 'v0.app',
-  applicationName: 'Fresh Wash Washateria',
-  formatDetection: { telephone: true, address: true },
-  appleWebApp: {
-    capable: true,
-    title: 'Fresh Wash',
-    statusBarStyle: 'default',
+  metadataBase: new URL(siteUrl),
+  title: seo.title,
+  description: seo.description,
+  applicationName: seo.siteName,
+  alternates: { canonical: '/' },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 },
   },
+  // Phone numbers and the address are already explicit links; stop iOS from auto-linking prices or machine counts.
+  formatDetection: { telephone: false, address: false, email: false },
+  // Home-screen title only — the site keeps opening in the normal browser.
+  appleWebApp: { capable: false, title: 'FreshWash', statusBarStyle: 'default' },
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    siteName: 'Fresh Wash Washateria',
-    title: 'Fresh Wash Washateria | Laundromat & Wash Dry Fold Serving Cullen & Pearland',
-    description:
-      'Self-service laundry and Wash, Dry & Fold service at 14450 Old Chocolate Bayou Rd Ste A, Houston, TX 77048. Serving the Cullen & Pearland areas.',
-    images: [{ url: '/images/exterior.jpg', alt: 'Fresh Wash Washateria storefront' }],
+    url: '/',
+    siteName: seo.siteName,
+    title: seo.title,
+    description: seo.shareDescription,
+    images: [{ ...seo.ogImage, type: 'image/jpeg' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: seo.title,
+    description: seo.shareDescription,
+    images: [{ url: seo.ogImage.url, alt: seo.ogImage.alt }],
   },
   icons: {
     icon: [
-      { url: '/icon-light-32x32.png', media: '(prefers-color-scheme: light)' },
-      { url: '/icon-dark-32x32.png', media: '(prefers-color-scheme: dark)' },
-      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico', sizes: '32x32' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
     ],
-    apple: '/apple-icon.png',
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
   },
 }
 
@@ -52,7 +52,7 @@ export const viewport: Viewport = {
   initialScale: 1,
   viewportFit: 'cover',
   colorScheme: 'light',
-  themeColor: '#1f7ac4',
+  themeColor: seo.themeColor,
 }
 
 export default function RootLayout({
@@ -63,6 +63,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={nunito.variable}>
       <body className="antialiased">
+        <noscript>
+          <style>{'.reveal{opacity:1!important;transform:none!important}'}</style>
+        </noscript>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

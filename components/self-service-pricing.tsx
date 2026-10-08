@@ -4,8 +4,8 @@ import { Reveal, SectionHeading } from '@/components/reveal'
 
 export function SelfServicePricing() {
   return (
-    <section id="self-service" className="scroll-mt-28 bg-secondary/60 py-14 md:py-24">
-      <div className="mx-auto max-w-6xl px-4">
+    <section id="self-service" className="bg-secondary/60 py-14 md:py-24">
+      <div className="mx-auto max-w-6xl px-safe">
         <Reveal>
           <SectionHeading eyebrow="Self-Service" title="Washer & dryer prices">
             Pick the machine size that fits your load. Same price for every wash setting and every dryer temperature.

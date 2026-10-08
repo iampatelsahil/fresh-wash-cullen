@@ -13,7 +13,7 @@ const reasons = [
 export function WhyUs() {
   return (
     <section className="bg-secondary/60 py-14 md:py-24">
-      <div className="mx-auto max-w-6xl px-4">
+      <div className="mx-auto max-w-6xl px-safe">
         <Reveal>
           <SectionHeading eyebrow="Why Fresh Wash" title="A clean, comfortable place to do laundry" />
         </Reveal>
