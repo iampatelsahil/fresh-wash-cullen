@@ -19,8 +19,8 @@ const services = [
     photo: photos.staff,
     w: 1091,
     h: 590,
-    href: '#wash-fold',
-    cta: 'Wash, Dry & Fold prices',
+    href: '/wash-and-fold',
+    cta: 'About Wash, Dry & Fold',
   },
   {
     title: 'Large-Capacity Machines',

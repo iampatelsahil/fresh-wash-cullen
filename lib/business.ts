@@ -10,19 +10,22 @@ export const business = {
   mapsUrl: 'https://maps.app.goo.gl/U51vEKGPgMVFQykV8',
   mapsEmbedUrl:
     'https://www.google.com/maps?q=14450+Old+Chocolate+Bayou+Rd+Ste+A,+Houston,+TX+77048&output=embed',
+  // Address-level geocode of 14450 Old Chocolate Bayou Rd (two independent listings agree within ~40 m).
+  geo: { latitude: 29.60013, longitude: -95.35172 },
 }
 
 // Absolute production URL used for canonical, Open Graph and JSON-LD URLs.
+// www is the primary host; the bare domain should 308-redirect to it (Vercel → Settings → Domains).
 // NEXT_PUBLIC_SITE_URL can override it (e.g. for a staging domain).
-export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://freshwashcullen.com').replace(/\/$/, '')
+export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.freshwashcullen.com').replace(/\/$/, '')
 
 export const seo = {
   siteName: 'FreshWash Washateria',
-  title: 'FreshWash Washateria | Cullen & Pearland',
+  title: 'FreshWash Washateria | Laundromat & Wash and Fold, Houston TX',
   description:
-    'Self-service laundry and Wash, Dry & Fold at FreshWash Washateria, your local laundromat serving the Cullen and Pearland areas. Open 7 days a week from 7 AM.',
+    'Laundromat on Old Chocolate Bayou Rd, Houston 77048, near Pearland: 39 washers, 50 dryers and Wash, Dry & Fold at $1.39/lb. Open 7 days from 7 AM.',
   shareDescription:
-    'FreshWash Washateria serving the Cullen and Pearland areas. Self-service laundry and Wash, Dry & Fold services.',
+    'Self-service laundromat and Wash, Dry & Fold in Houston 77048, serving the Cullen and Pearland areas. Open 7 days a week.',
   ogImage: {
     url: '/og-image.jpg',
     width: 1200,
@@ -33,13 +36,14 @@ export const seo = {
   themeColor: '#0070b5',
 }
 
+// Path-absolute so the same links work from every page (on "/" they stay same-page jumps).
 export const navLinks = [
-  { href: '#home', label: 'Home' },
-  { href: '#self-service', label: 'Self-Service' },
-  { href: '#wash-fold', label: 'Wash, Dry & Fold' },
-  { href: '#hours', label: 'Hours' },
-  { href: '#location', label: 'Location' },
-  { href: '#contact', label: 'Contact' },
+  { href: '/', label: 'Home' },
+  { href: '/#self-service', label: 'Self-Service' },
+  { href: '/wash-and-fold', label: 'Wash & Fold' },
+  { href: '/#hours', label: 'Hours' },
+  { href: '/#faq', label: 'FAQ' },
+  { href: '/#contact', label: 'Contact' },
 ]
 
 export const hours = [
@@ -72,7 +76,7 @@ export const washFoldMain = [
 
 export const washFoldItems = [
   { name: 'Queen / King Size', note: 'Comforters & blankets', price: '$15.99', unit: 'per piece' },
-  { name: 'Tween / Full Size', note: 'Comforters & blankets', price: '$10.99', unit: 'per piece' },
+  { name: 'Twin / Full Size', note: 'Comforters & blankets', price: '$10.99', unit: 'per piece' },
   { name: 'Pillows', note: null, price: '$2.99', unit: 'per piece' },
   { name: 'Large Rug', note: null, price: '$17.99', unit: 'per piece' },
   { name: 'Small Rug', note: null, price: '$10.99', unit: null },

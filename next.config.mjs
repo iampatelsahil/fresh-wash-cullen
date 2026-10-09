@@ -3,6 +3,10 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  // Two root layouts ((en) with lang="en", (es) with lang="es") need app/global-not-found.tsx for unmatched URLs.
+  experimental: {
+    globalNotFound: true,
+  },
   images: {
     formats: ['image/avif', 'image/webp'],
     qualities: [75, 85],

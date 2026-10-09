@@ -6,21 +6,29 @@ import { WashFoldPricing } from '@/components/wash-fold-pricing'
 import { WhyUs } from '@/components/why-us'
 import { Gallery } from '@/components/gallery'
 import { HoursArea } from '@/components/hours-area'
+import { Faq } from '@/components/faq'
 import { Visit } from '@/components/visit'
 import { SiteFooter } from '@/components/site-footer'
 import { MobileActionBar } from '@/components/mobile-action-bar'
-import { LocalBusinessSchema } from '@/components/local-business-schema'
+import { SkipLink } from '@/components/skip-link'
+import { businessSchema, faqSchema, JsonLd, websiteSchema } from '@/components/local-business-schema'
+import { seo, siteUrl } from '@/lib/business'
+import { homeFaqs } from '@/lib/faqs'
+import { pageMetadata } from '@/lib/metadata'
+
+export const metadata = pageMetadata({
+  path: '/',
+  title: seo.title,
+  description: seo.description,
+  shareDescription: seo.shareDescription,
+  alternates: { en: '/', es: '/es' },
+})
 
 export default function Home() {
   return (
     <>
-      <LocalBusinessSchema />
-      <a
-        href="#main"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-[calc(0.5rem+env(safe-area-inset-top))] focus:left-2 focus:z-[60] focus:rounded-full focus:bg-background focus:px-4 focus:py-3 focus:font-bold focus:text-primary focus:shadow-lg"
-      >
-        Skip to content
-      </a>
+      <JsonLd graph={[businessSchema, websiteSchema, faqSchema(homeFaqs, `${siteUrl}/`)]} />
+      <SkipLink />
       <SiteHeader />
       <main id="main" tabIndex={-1} className="outline-none">
         <Hero />
@@ -30,6 +38,7 @@ export default function Home() {
         <WhyUs />
         <Gallery />
         <HoursArea />
+        <Faq id="faq" eyebrow="Questions" title="Laundromat FAQ" items={homeFaqs} />
         <Visit />
       </main>
       <SiteFooter />
