@@ -36,7 +36,7 @@ export function WashFoldPricing() {
 
         <div className="mt-6 grid gap-6 lg:grid-cols-5">
           <Reveal className="lg:col-span-3">
-            <div className="h-full rounded-3xl border bg-card p-5 shadow-sm sm:p-6 md:p-8">
+            <div id="bedding" className="h-full rounded-3xl border bg-card p-5 shadow-sm sm:p-6 md:p-8">
               <h3 className="text-xl font-extrabold">Bedding & rugs</h3>
               <ul className="mt-4 divide-y">
                 {washFoldItems.map((item) => (

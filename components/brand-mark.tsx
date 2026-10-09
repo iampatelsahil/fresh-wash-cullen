@@ -23,3 +23,14 @@ export function BrandMark({ id, className }: { id: string; className?: string })
     </svg>
   )
 }
+
+// Text wordmark matching /logo.svg. Kept as live text so it stays crisp and readable by screen readers and crawlers.
+export function Wordmark({ inverted = false, className }: { inverted?: boolean; className?: string }) {
+  return (
+    <span className={cn('font-black tracking-tight', className)}>
+      <span className={inverted ? 'text-background' : 'text-brand-navy'}>Fresh</span>
+      <span className={inverted ? 'text-aqua-light' : 'text-aqua'}>Wash</span>
+      <span className={inverted ? 'text-background' : 'text-brand-navy'}> Washateria</span>
+    </span>
+  )
+}

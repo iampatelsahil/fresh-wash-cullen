@@ -6,6 +6,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: seo.siteName,
     short_name: 'FreshWash',
     description: seo.description,
+    lang: 'en-US',
     start_url: '/',
     scope: '/',
     // Home-screen shortcut with FreshWash branding; the site still opens in the browser.

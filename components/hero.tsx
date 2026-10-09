@@ -15,11 +15,11 @@ export function Hero() {
             Serving the Cullen & Pearland Areas
           </p>
           <h1 className="mt-4 text-balance text-[2.125rem] font-extrabold leading-[1.1] tracking-tight min-[375px]:text-[2.25rem] sm:text-5xl md:mt-5 md:text-6xl short-landscape:text-4xl">
-            Clean Clothes. <span className="text-primary">Easy Laundry.</span>
+            Laundromat & <span className="text-primary">Wash and Fold</span> in Houston
           </h1>
           <p className="mt-4 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg md:mt-5">
-            Your convenient local washateria serving the Cullen & Pearland areas. Stop in for self-service laundry or
-            let us handle it with our Wash, Dry & Fold service.
+            FreshWash Washateria is a self-service laundromat on Old Chocolate Bayou Rd (77048), serving the Cullen
+            area and nearby Pearland. Wash and dry it yourself on 89 machines, or drop it off for Wash, Dry & Fold.
           </p>
 
           <div className="mt-6 grid grid-cols-1 gap-3 min-[400px]:grid-cols-2 md:mt-8 short-landscape:mt-5">
@@ -28,7 +28,7 @@ export function Hero() {
               View Prices
             </a>
             <a
-              href="#wash-fold"
+              href="/wash-and-fold"
               className={`${ctaBase} border-2 border-primary bg-background text-primary hover:bg-secondary hover:opacity-100`}
             >
               <Shirt className="size-5" aria-hidden="true" />
@@ -71,6 +71,7 @@ export function Hero() {
               alt={photos.exterior.alt}
               fill
               preload
+              fetchPriority="high"
               quality={85}
               sizes="(min-width: 1152px) 560px, (min-width: 1024px) 50vw, (orientation: landscape) and (max-height: 500px) 50vw, 100vw"
               className="object-cover object-[50%_35%]"

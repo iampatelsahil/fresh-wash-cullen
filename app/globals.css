@@ -26,6 +26,9 @@
   --color-secondary: var(--secondary);
   --color-primary-foreground: var(--primary-foreground);
   --color-primary: var(--primary);
+  --color-brand-navy: var(--brand-navy);
+  --color-aqua: var(--aqua);
+  --color-aqua-light: var(--aqua-light);
   --color-popover-foreground: var(--popover-foreground);
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
@@ -51,6 +54,10 @@
   /* Brand blue, tuned so small blue text passes WCAG AA on the light-blue sections. */
   --primary: oklch(0.52 0.15 240);
   --primary-foreground: oklch(0.99 0 0);
+  /* Logo colors: navy "Fresh", aqua "Wash" (darkened from the logo's #0891b2 for AA text contrast). */
+  --brand-navy: #0b2f6b;
+  --aqua: #0e7490;
+  --aqua-light: #67e8f9;
   --secondary: oklch(0.96 0.025 230);
   --secondary-foreground: oklch(0.3 0.08 245);
   --muted: oklch(0.965 0.012 230);
