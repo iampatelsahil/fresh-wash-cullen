@@ -15,16 +15,17 @@ export const baseMetadata: Metadata = {
   formatDetection: { telephone: false, address: false, email: false },
   // Home-screen title only — the site keeps opening in the normal browser.
   appleWebApp: { capable: false, title: 'FreshWash', statusBarStyle: 'default' },
+  // ?v= forces browsers and Google to re-download icons that were cached under the same URL.
   icons: {
     icon: [
-      { url: '/favicon.ico', sizes: '16x16 32x32 48x48' },
-      { url: '/favicon.svg', type: 'image/svg+xml' },
-      { url: '/favicon-48x48.png', sizes: '48x48', type: 'image/png' },
-      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/favicon.ico?v=2', sizes: '16x16 32x32 48x48' },
+      { url: '/favicon.svg?v=2', type: 'image/svg+xml' },
+      { url: '/favicon-48x48.png?v=2', sizes: '48x48', type: 'image/png' },
+      { url: '/favicon-32x32.png?v=2', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-16x16.png?v=2', sizes: '16x16', type: 'image/png' },
+      { url: '/icon-192.png?v=2', sizes: '192x192', type: 'image/png' },
     ],
-    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
+    apple: [{ url: '/apple-touch-icon.png?v=2', sizes: '180x180', type: 'image/png' }],
   },
 }
 
