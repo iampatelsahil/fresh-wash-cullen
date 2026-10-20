@@ -138,8 +138,7 @@ export default function Espanol() {
           <div className="mx-auto max-w-6xl px-safe">
             <Reveal>
               <SectionHeading eyebrow="Autoservicio" title="Precios de lavadoras y secadoras">
-                Elija el tamaño de máquina según su carga. El precio es el mismo para cualquier ciclo de lavado y
-                cualquier temperatura de secado.
+                Elija el tamaño de máquina según su carga. Todas las temperaturas de secado tienen el mismo precio.
               </SectionHeading>
             </Reveal>
             <div className="mt-8 grid gap-6 md:mt-12 lg:grid-cols-2">
@@ -150,9 +149,7 @@ export default function Espanol() {
                   </span>
                   <div>
                     <h3 className="text-2xl font-extrabold">Lavadoras</h3>
-                    <p className="text-sm text-muted-foreground">
-                      Normal, planchado permanente y delicado · Agua caliente, tibia o fría
-                    </p>
+                    <p className="text-sm text-muted-foreground">Ciclos normal, planchado permanente y delicado</p>
                   </div>
                 </div>
                 <ul className="mt-6 divide-y">
@@ -160,11 +157,12 @@ export default function Espanol() {
                     <li key={w.size} className="flex items-center justify-between gap-4 py-4">
                       <div>
                         <p className="text-lg font-extrabold">Lavadora de {w.size}</p>
-                        <p className="text-sm text-muted-foreground">
-                          {w.count} máquinas · Opciones extra {w.extra} c/u
-                        </p>
+                        <p className="text-sm text-muted-foreground">{w.count} máquinas</p>
                       </div>
-                      <p className="shrink-0 text-2xl font-extrabold tabular-nums text-primary sm:text-3xl">{w.price}</p>
+                      <p className="shrink-0 text-right">
+                        <span className="block text-xs font-semibold text-muted-foreground">desde</span>
+                        <span className="text-2xl font-extrabold tabular-nums text-primary sm:text-3xl">{w.price}</span>
+                      </p>
                     </li>
                   ))}
                 </ul>

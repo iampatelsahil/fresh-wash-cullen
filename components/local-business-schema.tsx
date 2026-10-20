@@ -66,9 +66,8 @@ export const businessSchema = {
         priceSpecification: {
           '@type': 'PriceSpecification',
           minPrice: usd(washers[0].price),
-          maxPrice: usd(washers[washers.length - 1].price),
           priceCurrency: 'USD',
-          description: 'Price per wash cycle, by washer size',
+          description: 'Starting price per wash cycle; varies by washer size and settings',
         },
       },
       {

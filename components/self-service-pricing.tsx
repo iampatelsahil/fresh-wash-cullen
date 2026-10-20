@@ -8,7 +8,7 @@ export function SelfServicePricing() {
       <div className="mx-auto max-w-6xl px-safe">
         <Reveal>
           <SectionHeading eyebrow="Self-Service" title="Washer & dryer prices">
-            Pick the machine size that fits your load. Same price for every wash setting and every dryer temperature.
+            Pick the machine size that fits your load. Every dryer temperature is the same price.
           </SectionHeading>
         </Reveal>
 
@@ -21,7 +21,7 @@ export function SelfServicePricing() {
                 </span>
                 <div>
                   <h3 className="text-2xl font-extrabold">Washers</h3>
-                  <p className="text-sm text-muted-foreground">Normal, Perm Press & Delicate · Hot, Warm or Cold</p>
+                  <p className="text-sm text-muted-foreground">Normal, Perm Press & Delicate cycles</p>
                 </div>
               </div>
               <ul className="mt-6 divide-y">
@@ -29,11 +29,12 @@ export function SelfServicePricing() {
                   <li key={w.size} className="flex items-center justify-between gap-4 py-4">
                     <div>
                       <p className="text-lg font-extrabold">{w.size} Washer</p>
-                      <p className="text-sm text-muted-foreground">
-                        {w.count} machines · Extra options {w.extra} each
-                      </p>
+                      <p className="text-sm text-muted-foreground">{w.count} machines</p>
                     </div>
-                    <p className="shrink-0 text-2xl font-extrabold tabular-nums text-primary sm:text-3xl">{w.price}</p>
+                    <p className="shrink-0 text-right">
+                      <span className="block text-xs font-semibold text-muted-foreground">from</span>
+                      <span className="text-2xl font-extrabold tabular-nums text-primary sm:text-3xl">{w.price}</span>
+                    </p>
                   </li>
                 ))}
               </ul>
