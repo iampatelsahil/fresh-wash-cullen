@@ -4,7 +4,8 @@ import { business, dryers, washers, washFoldBags, washFoldItems, washFoldMain } 
 // Payment methods and wash & fold turnaround are deliberately not answered until the store confirms them.
 
 const [perPound, miniLoad] = washFoldMain
-const washerRange = `${washers[0].price} for a ${washers[0].size} washer up to ${washers[washers.length - 1].price} for an ${washers[washers.length - 1].size} washer`
+const largestWasher = washers[washers.length - 1]
+const washerRange = `${washers[0].price} for a ${washers[0].size} washer and ${largestWasher.price} for an ${largestWasher.size} washer`
 const address = `${business.street}, ${business.cityStateZip}`
 const item = (name: string) => washFoldItems.find((i) => i.name === name)!
 
@@ -19,7 +20,7 @@ export const homeFaqs = [
   },
   {
     q: 'How much does it cost to wash and dry a load?',
-    a: `Washers cost ${washerRange}. Every wash setting is the same price. Dryers start at ${dryers[0].price}, with extra drying time from ${dryers[0].topoff}.`,
+    a: `Washers start at ${washerRange}. Dryers start at ${dryers[0].price}, with extra drying time from ${dryers[0].topoff}.`,
   },
   {
     q: 'What size washers and dryers do you have?',
@@ -69,7 +70,7 @@ export const homeFaqsEs = [
   },
   {
     q: '¿Cuánto cuesta lavar y secar una carga?',
-    a: `Las lavadoras cuestan desde ${washers[0].price} (${washers[0].size}) hasta ${washers[washers.length - 1].price} (${washers[washers.length - 1].size}). Todos los ciclos de lavado cuestan lo mismo. Las secadoras empiezan en ${dryers[0].price}, con tiempo adicional desde ${dryers[0].topoff}.`,
+    a: `Las lavadoras de ${washers[0].size} empiezan en ${washers[0].price} y las de ${largestWasher.size} en ${largestWasher.price}. Las secadoras empiezan en ${dryers[0].price}, con tiempo adicional desde ${dryers[0].topoff}.`,
   },
   {
     q: '¿Cuánto cuesta el servicio de lavado, secado y doblado?',

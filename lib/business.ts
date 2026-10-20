@@ -56,11 +56,12 @@ export const hours = [
   { day: 'Sunday', time: '7:00 AM – 11:00 PM' },
 ]
 
+// Starting price per wash (cold water). Warmer water and extra options cost more and aren't listed on the site.
 export const washers = [
-  { size: '20 lb', count: 14, price: '$3.00', extra: '$0.75' },
-  { size: '40 lb', count: 14, price: '$5.00', extra: '$0.85' },
-  { size: '60 lb', count: 7, price: '$7.00', extra: '$1.00' },
-  { size: '80 lb', count: 4, price: '$9.00', extra: '$1.25' },
+  { size: '20 lb', count: 14, price: '$3.25' },
+  { size: '40 lb', count: 14, price: '$5.50' },
+  { size: '60 lb', count: 7, price: '$7.50' },
+  { size: '80 lb', count: 4, price: '$9.50' },
 ]
 
 export const dryers = [

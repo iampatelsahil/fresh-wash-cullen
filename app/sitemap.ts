@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next'
 import { siteUrl } from '@/lib/business'
 
 // Bump when a page's content meaningfully changes.
-const lastModified = '2026-10-09'
+const lastModified = '2026-10-20'
 
 const languages = { 'en-US': `${siteUrl}/`, 'es-US': `${siteUrl}/es`, 'x-default': `${siteUrl}/` }
 
